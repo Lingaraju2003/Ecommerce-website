@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<p>Products: {{ products }}</p>
+<p>Orders: {{ orders }}</p>
+<p>
+  <a href="{% url 'admin_products' %}">Manage Products</a> |
+  <a href="{% url 'admin_orders' %}">Manage Orders</a>
+</p>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Manage Products</h2>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Save</button>
+</form>
+<table>
+  <tr><th>Name</th><th>Price</th><th>Stock</th></tr>
+  {% for p in products %}
+    <tr><td>{{ p.name }}</td><td>₹{{ p.price }}</td><td>{{ p.stock }}</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,14 @@
+
+body { font-family: Arial, sans-serif; background: #fafafa; margin: 0; padding: 0; }
+nav { background: #333; color: white; padding: 10px; }
+nav a { color: white; text-decoration: none; margin-right: 10px; }
+.container { padding: 20px; }
+button { background: #4CAF50; color: white; border: none; padding: 8px 14px; border-radius: 4px; cursor: pointer; }
+button:hover { background: #45a049; }
+.grid { display: flex; flex-wrap: wrap; gap: 20px; }
+.product-card { background: white; border: 1px solid #ddd; padding: 10px; border-radius: 6px; width: 180px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.product-card img { max-width: 100%; border-radius: 4px; }
+table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background: #f4f4f4; }
+.messages { list-style: none; color: green; }

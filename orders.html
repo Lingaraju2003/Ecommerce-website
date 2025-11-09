@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Manage Orders</h2>
+<form method="post">{% csrf_token %}<button name="export">Export CSV</button></form>
+<table>
+  <tr><th>ID</th><th>User</th><th>Total</th><th>Status</th><th>Update</th></tr>
+  {% for o in orders %}
+    <tr>
+      <td>{{ o.id }}</td><td>{{ o.user.username }}</td><td>₹{{ o.total_price }}</td><td>{{ o.status }}</td>
+      <td>
+        <form method="post" action="{% url 'update_order_status' o.id %}">{% csrf_token %}
+          <select name="status">
+            {% for s in o.STATUS_CHOICES %}<option value="{{ s.0 }}" {% if s.0 == o.status %}selected{% endif %}>{{ s.0 }}</option>{% endfor %}
+          </select>
+          <button>Save</button>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}

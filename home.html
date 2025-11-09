@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Products</h2>
+<form method="get">
+  <input type="text" name="search" placeholder="Search" value="{{ search }}">
+  <button>Search</button>
+</form>
+<div class="grid">
+  {% for p in products %}
+    <div class="product-card">
+      <a href="{% url 'product_detail' p.slug %}">{{ p.name }}</a><br>
+      ₹{{ p.price }}
+      {% if p.image %}
+        <div><img src="{{ p.image.url }}" alt="{{ p.name }}"></div>
+      {% endif %}
+    </div>
+  {% empty %}
+    <p>No products found.</p>
+  {% endfor %}
+</div>
+{% endblock %}
